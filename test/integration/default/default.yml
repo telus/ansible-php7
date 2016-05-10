@@ -5,7 +5,7 @@
 
   roles:
     # name of role to test
-    - role: ansible-php
+    - role: ansible-php7
       system_role: travis
       project: travis
       environment_tier: travis
