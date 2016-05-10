@@ -1,0 +1,20 @@
+---
+dependencies:
+  - role: telusdigital.apt-repository
+    repository_key: "0x4f4ea0aae5267a6c"
+    repository_url: "deb http://ppa.launchpad.net/ondrej/php/ubuntu {{ ansible_distribution_release }} main"
+
+galaxy_info:
+  author: "Aaron Pederson"
+  company: "TELUS digital"
+  description: "PHP 7 is the latest version of general-purpose scripting language that is popular in web development."
+  license: MIT
+  platforms:
+    - name: Ubuntu
+      versions:
+      - precise
+      - trusty
+      - utopic
+  galaxy_tags:
+    - development
+    - web

@@ -1,0 +1,6 @@
+---
+php_modules:
+  - php7.0-fpm
+  - php7.0-mysql
+  - php-redis
+  - php7.0-curl

@@ -1,0 +1,12 @@
+---
+- name: Install Packages | apt | Python Software Properties
+  apt:
+    state: latest
+    name: "{{ item }}"
+  with_items:
+    - python-software-properties
+
+- name: Install PHP 7.0 | apt
+  apt:
+    name: "{{ item }}"
+  with_items: "{{ php_modules }}"
