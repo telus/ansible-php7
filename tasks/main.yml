@@ -6,8 +6,17 @@
   with_items:
     - python-software-properties
 
+- name: Install Packages | apt
+  become: yes
+  apt:
+    state: latest
+    name: "{{ item }}"
+  with_items:
+    - php7.0-fpm
+
 - name: Install PHP 7.0 | apt
   become: yes
   apt:
+    state: latest
     name: "{{ item }}"
   with_items: "{{ php_modules }}"
