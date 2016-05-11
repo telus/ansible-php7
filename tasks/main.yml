@@ -1,0 +1,6 @@
+---
+- name: Install PHP 7.0 Modules | apt
+  apt:
+    state: latest
+    name: "{{ item }}"
+  with_items: "{{ php7_modules }}"

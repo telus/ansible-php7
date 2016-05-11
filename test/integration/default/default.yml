@@ -1,0 +1,14 @@
+---
+# host to test against
+- hosts: test-kitchen
+  remote_user: root
+
+  roles:
+    # name of role to test
+    - role: ansible-php7
+      system_role: travis
+      project: travis
+      environment_tier: travis
+      domain: travis
+      php7_modules:
+        - php7.0-json
