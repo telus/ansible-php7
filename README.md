@@ -8,6 +8,9 @@
 Tunables
 --------
 * `php7_modules` (list) - Additional PHP modules to install
+* `php_composer` (boolean) - Install Composer?
+* `php_documentor` (boolean) - Install PHP Documentor?
+* `php_phpunit` (boolean) - Install PHPUnit?
 
 
 Dependencies
