@@ -4,3 +4,55 @@
     state: latest
     name: "{{ item }}"
   with_items: "{{ php7_modules }}"
+
+- name: Composer | Download and Compile
+  shell: "{{ item }}"
+  with_items:
+    - 'export COMPOSER_HOME=/usr/local/bin && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin'
+    - 'mv /usr/local/bin/composer.phar /usr/local/bin/composer'
+  args:
+    creates: /usr/local/bin/composer
+  when: php_composer
+  tags:
+    - composer
+
+- name: Composer | Set Permissions
+  file:
+    path: /usr/local/bin/composer
+    mode: 0755
+  when: php_composer
+  tags:
+    - composer
+
+- name: PHPUnit | Download and Install
+  shell: "{{ item }}"
+  with_items:
+    - 'wget https://phar.phpunit.de/phpunit.phar'
+    - 'wget https://phar.phpunit.de/phpunit.phar.asc'
+    - 'gpg --keyserver keyserver.ubuntu.com --recv-keys 0x4AA394086372C20A'
+    - 'gpg phpunit.phar.asc'
+    - 'mv phpunit.phar /usr/local/bin/phpunit'
+    - 'rm phpunit.phar.asc'
+  args:
+    creates: /usr/local/bin/phpunit
+  when: php_phpunit
+  tags:
+    - phpunit
+
+- name: PHPUnit | Set Permissions
+  file:
+    path: /usr/local/bin/phpunit
+    mode: 0755
+  when: php_phpunit
+  tags:
+    - phpunit
+
+- name: install phpDocumentor
+  get_url:
+    url: https://phpdoc.org/phpDocumentor.phar
+    dest: /usr/local/bin/phpDocumentor
+    mode: 0755
+    validate_certs: "{{ php_documentor_validate_certs }}"
+  when: php_documentor
+  tags:
+    - phpDocumentor

@@ -1,2 +1,6 @@
 ---
 php7_modules: []
+php_composer: no
+php_documentor: no
+php_documentor_validate_certs: yes
+php_phpunit: no
