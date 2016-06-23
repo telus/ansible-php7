@@ -3,4 +3,4 @@
   apt:
     state: latest
     name: "{{ item }}"
-  with_items: "{{ php7_modules }}"
+  with_items: "{{ php_modules }}"
