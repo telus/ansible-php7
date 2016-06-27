@@ -8,7 +8,10 @@
 Tunables
 --------
 * `php_modules` (list) - Additional PHP modules to install
-
+* `php_composer` (boolean) - Install Composer?
+* `php_documentor` (boolean) - Install PHP Documentor?
+* `php_documentor_validate_certificates` (boolean) - PHP documentor should validate certificates?
+* `php_phpunit` (boolean) - Install PHPUnit?
 
 Dependencies
 ------------
@@ -30,3 +33,4 @@ License
 Contributors
 ------------
 * [Aaron Pederson](https://aaronpederson.github.io) | [e-mail](mailto:aaronpederson@gmail.com) | [Twitter](https://twitter.com/GunFuSamurai)
+* Ming Tang
