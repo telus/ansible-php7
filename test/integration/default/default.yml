@@ -10,5 +10,5 @@
       project: travis
       environment_tier: travis
       domain: travis
-      php7_modules:
+      php_modules:
         - php7.0-json

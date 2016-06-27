@@ -7,7 +7,7 @@
 
 Tunables
 --------
-* `php7_modules` (list) - Additional PHP modules to install
+* `php_modules` (list) - Additional PHP modules to install
 
 
 Dependencies
@@ -19,7 +19,7 @@ Example Playbook
     - hosts: servers
       roles:
          - role: telusdigital.php7
-           php7_modules:
+           php_modules:
              - php7.0-curl
              - php7.0-mysql
 
