@@ -1,4 +1,11 @@
 ---
+- name: Install Packages | PHP-7.0-fpm
+  apt:
+    state: latest
+    name: "{{ item }}"
+  with_items:
+    - php7.0-fpm
+
 - name: Install PHP 7.0 Modules | apt
   apt:
     state: latest
