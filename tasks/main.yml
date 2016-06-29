@@ -13,6 +13,7 @@
   with_items: "{{ php_modules }}"
 
 - name: Composer | Download and Compile
+  become: true
   shell: "{{ item }}"
   with_items:
     - 'export COMPOSER_HOME=/usr/local/bin && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin'
