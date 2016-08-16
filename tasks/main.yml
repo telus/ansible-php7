@@ -50,7 +50,7 @@
 
 - name: Configure | php7.0-fpm | php.ini
   ini_file:
-    dest: /etc/php7/fpm/php.ini
+    dest: /etc/php/7.0/fpm/php.ini
     section: PHP
     option: "{{ item.option }}"
     value: "{{ item.value }}"
