@@ -48,8 +48,7 @@
     validate_certs: "{{ php_documentor_validate_certificates }}"
   when: php_documentor
 
-- name: Configure | php7.0-fpm | php.ini
-  ini_file:
+- ini_file:
     dest: /etc/php/7.0/fpm/php.ini
     section: PHP
     option: "{{ item.option }}"
