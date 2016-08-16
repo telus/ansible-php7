@@ -1,19 +1,17 @@
 ---
-- name: Install Packages | PHP7.0-fpm
-  apt:
+- apt:
     state: latest
     name: "{{ item }}"
   with_items:
+    - curl
     - php7.0-fpm
 
-- name: Install PHP 7.0 Modules | apt
-  apt:
+- apt:
     state: latest
     name: "{{ item }}"
   with_items: "{{ php_modules }}"
 
-- name: Composer | Download and Compile
-  shell: "{{ item }}"
+- shell: "{{ item }}"
   with_items:
     - 'export COMPOSER_HOME=/usr/local/bin && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin'
     - 'mv /usr/local/bin/composer.phar /usr/local/bin/composer'
@@ -21,14 +19,12 @@
     creates: /usr/local/bin/composer
   when: php_composer
 
-- name: Composer | Set Permissions
-  file:
+- file:
     path: /usr/local/bin/composer
     mode: 0755
   when: php_composer
 
-- name: PHPUnit | Download and Install
-  shell: "{{ item }}"
+- shell: "{{ item }}"
   with_items:
     - 'wget https://phar.phpunit.de/phpunit.phar'
     - 'wget https://phar.phpunit.de/phpunit.phar.asc'
@@ -40,16 +36,24 @@
     creates: /usr/local/bin/phpunit
   when: php_phpunit
 
-- name: PHPUnit | Set Permissions
-  file:
+- file:
     path: /usr/local/bin/phpunit
     mode: 0755
   when: php_phpunit
 
-- name: install phpDocumentor
-  get_url:
+- get_url:
     url: https://phpdoc.org/phpDocumentor.phar
     dest: /usr/local/bin/phpDocumentor
     mode: 0755
     validate_certs: "{{ php_documentor_validate_certificates }}"
   when: php_documentor
+
+- ini_file:
+    dest: /etc/php/7.0/fpm/php.ini
+    section: PHP
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  with_items:
+    - { option: 'post_max_size',         value: "{{ php_post_max_size }}" }
+    - { option: 'upload_max_filesize',   value: "{{ php_upload_max_filesize }}" }
+  notify: service | php7-fpm | reloaded

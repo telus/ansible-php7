@@ -4,14 +4,15 @@
 
 [![Platforms](http://img.shields.io/badge/platforms-ubuntu-lightgrey.svg?style=flat)](#) [![Build Status](https://travis-ci.org/telusdigital/ansible-php7.svg?branch=master)](https://travis-ci.org/telusdigital/ansible-php7)
 
-
 Tunables
 --------
-* `php_modules` (list) - Additional PHP modules to install
 * `php_composer` (boolean) - Install Composer?
-* `php_documentor` (boolean) - Install PHP Documentor?
 * `php_documentor_validate_certificates` (boolean) - PHP documentor should validate certificates?
+* `php_documentor` (boolean) - Install PHP Documentor?
+* `php_modules` (list) - Additional PHP modules to install
 * `php_phpunit` (boolean) - Install PHPUnit?
+* `php_post_max_size` (string) - Maximum POST size
+* `php_upload_max_filesize` (string) - Maximum upload filesize (must be < `php_post_max_size`)
 
 Dependencies
 ------------

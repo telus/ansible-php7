@@ -11,10 +11,10 @@
 
 - name: service | php7-fpm | restarted
   service:
-    state: restarted
     name: php7-fpm
+    state: restarted
 
 - name: service | php7-fpm | reloaded
   service:
-    state: reloaded
     name: php7-fpm
+    state: reloaded
