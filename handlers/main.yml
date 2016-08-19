@@ -1,20 +1,20 @@
 ---
-- name: service | php7-fpm | started
+- name: service | php7.0-fpm | started
   service:
-    name: php7-fpm
+    name: php7.0-fpm
     state: started
 
-- name: service | php7-fpm | stopped
+- name: service | php7.0-fpm | stopped
   service:
-    name: php7-fpm
+    name: php7.0-fpm
     state: stopped
 
-- name: service | php7-fpm | restarted
+- name: service | php7.0-fpm | restarted
   service:
-    name: php7-fpm
+    name: php7.0-fpm
     state: restarted
 
-- name: service | php7-fpm | reloaded
+- name: service | php7.0-fpm | reloaded
   service:
-    name: php7-fpm
+    name: php7.0-fpm
     state: reloaded
