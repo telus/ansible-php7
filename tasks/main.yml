@@ -64,4 +64,4 @@
   with_items:
     - { option: 'post_max_size',         value: "{{ php_post_max_size }}" }
     - { option: 'upload_max_filesize',   value: "{{ php_upload_max_filesize }}" }
-  notify: service | php7-fpm | restarted
+  notify: service | php7.0-fpm | restarted
