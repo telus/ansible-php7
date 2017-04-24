@@ -1,0 +1,18 @@
+---
+- name: Configure | php7.0-fpm | php.ini
+  ini_file:
+    dest: /etc/php/7.0/fpm/php.ini
+    section: PHP
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  with_items:
+    - { option: 'display_errors',        value: "{{ php_display_errors }}" }
+    - { option: 'error_log',             value: "{{ php_error_log_path }}" }
+    - { option: 'expose_php',            value: "{{ php_hide_version }}" }
+    - { option: 'max_execution_time',    value: "{{ php_max_execution_time }}" }
+    - { option: 'max_input_vars',        value: "{{ php_max_input_vars }}" }
+    - { option: 'memory_limit',          value: "{{ php_memory_limit }}" }
+    - { option: 'post_max_size',         value: "{{ php_post_max_size }}" }
+    - { option: 'session.cookie_secure', value: "{{ php_cookie_secure }}" }
+    - { option: 'upload_max_filesize',   value: "{{ php_upload_max_filesize }}" }
+  notify: service | php7.0-fpm | restarted

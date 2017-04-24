@@ -1,8 +1,18 @@
 ---
 php_composer: no
+php_cookie_secure: yes
+php_display_errors: "{% if environment_tier in ['development'] %}yes{% else %}no{% endif %}"
 php_documentor: no
 php_documentor_validate_certificates: yes
+php_hide_version: yes
+php_max_execution_time: 30
+php_max_input_vars: 1000
+php_memory_limit: 128m
 php_modules: []
 php_phpunit: no
 php_post_max_size: 8M
 php_upload_max_filesize: 2M
+
+php_log_root: "{{ log_root | default('/var/log') }}/php"
+php_fpm_log_path: "{{ php_log_root }}/fpm.log"
+php_error_log_path: "{{ php_log_root }}/error.log"
