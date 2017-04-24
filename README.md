@@ -11,7 +11,7 @@ Tunables
 * `php_documentor_validate_certificates` (boolean) - PHP documentor should validate certificates?
 * `php_documentor` (boolean) - Install PHP Documentor?
 * `php_hide_version` (boolean) - Do not expose version data.
-* `php_max_execution_time' (integer) - Maximum time in seconds a script is allowed to run before it is terminated by the parser.
+* `php_max_execution_time` (integer) - Maximum time in seconds a script is allowed to run before it is terminated by the parser.
 * `php_max_input_vars` (integer) - How many input variables may be accepted.
 * `php_memory_limit` (string) - Memory limit for PHP workers (should be > `php_post_max_size`)
 * `php_modules` (list) - Additional PHP modules to install
