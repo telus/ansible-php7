@@ -1,6 +1,7 @@
 ---
 php_composer: no
 php_cookie_secure: yes
+php_cookie_httponly: no
 php_display_errors: "{% if environment_tier in ['development'] %}yes{% else %}no{% endif %}"
 php_documentor: no
 php_documentor_validate_certificates: yes
